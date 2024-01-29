@@ -75,7 +75,6 @@ $images = $stmt->fetchAll();
             <?php foreach ($images as $image) { ?>
                 <img src="uploads/<?= $image['img_name'] ?>">
             <?php } ?>
-            <img src="uploads/">
         </div>
     <?php } ?>
 
