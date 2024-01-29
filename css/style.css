@@ -75,7 +75,7 @@ section
 {
     color: var(--green);
 }
-.header .icons dev
+.header .icons i
 {
     border: 0px solid;
     height: 4.5rem;
@@ -88,7 +88,7 @@ section
     margin-right: .3rem;
     text-align: center;
 }
-.header .icons dev:hover
+.header .icons i:hover
 {
     background-color: var(--green);
 }
@@ -145,7 +145,7 @@ section
 }
 .header .login-form .Box
 {
-    width: 100%;|
+    width: 100%;
     border: 0px solid;
     margin: .7rem 0;
     background: #eee;
