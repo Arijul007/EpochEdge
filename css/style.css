@@ -92,10 +92,6 @@ section
 {
     background-color: var(--green);
 }
-#manu-btn
-{
-    display: none;
-}
 
 .header .navbar.active
 {
@@ -735,10 +731,6 @@ section
 
 @media (max-width: 768px)
 {
-    #manu-btn
-{
-    display: inline-block;
-}
     .header .navbar
     {
         position: absolute;

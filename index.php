@@ -21,7 +21,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    
 
     <!--Code for font awesome cdn-->
 
@@ -59,7 +59,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 
         <div class="icons">
             <a href="auth.php"><i class="fa fa-user" id="login-btn"></i></a>
-            <!-- <i class="fa fa-out" id=""></i> -->
+            <a href="logout.php"><i class="fa fa-sign-out" id="logout-btn"></i></a>
         </div>
 
 
