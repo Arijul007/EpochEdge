@@ -109,7 +109,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
                 <img src="images/images.jpeg">
                 <h3>upload your images</h3>
                 <p>its the best way to share your pictures to many people's with privacy and security</p>
-                <a href="#" class="btn"> let's start</a>
+                <a href="U_image/index.php" class="btn"> let's start</a>
 
             </div>
 
