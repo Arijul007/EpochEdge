@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
-    header("location: login.php");
+    header("location: auth.php");
     exit;
 }
 ?>
@@ -58,8 +58,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
         </nav>
 
         <div class="icons">
-            <i class="fa fa-bars" id="manu-btn"></i>
-            <a href="login.php"><i class="fa fa-user" id="login-btn"></i></a>
+            <a href="auth.php"><i class="fa fa-user" id="login-btn"></i></a>
+            <!-- <i class="fa fa-out" id=""></i> -->
         </div>
 
 
