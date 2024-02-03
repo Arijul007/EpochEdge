@@ -18,9 +18,8 @@
         <tr>
         <td> <?php echo $i++; ?> </td>
         <td> <?php echo $row["name"]; ?> </td>
-        <td>
+        <td style="display: flex; align-items: center; gap: 10px;">
             <?php
-
             foreach(json_decode($row["image"]) as $image) : 
             ?>
             <img src="uploads/<?php echo $image; ?>" width=200>
