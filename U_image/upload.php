@@ -6,8 +6,6 @@
        $username=$_POST['username'];
        $email=$_POST['email'];
        $image=$_FILES['file'];
-       echo $username;
-       echo $email; 
        print_r($image);
        $imagefilename=$image['name'];
        $imagefileerror=$image['error'];
