@@ -1,63 +1,71 @@
 <?php
-    include '../db_connect.php';
+include '../db_connect.php';
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST")
+if (isset($_FILES['file']))
+{
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $files = $_FILES['file'];
+    $uploaded_images = array();
+    
+    foreach ($files['name'] as $key => $image)
     {
-       $username=$_POST['username'];
-       $email=$_POST['email'];
-       $image=$_FILES['file'];
-       print_r($image);
-       $imagefilename=$image['name'];
-       $imagefileerror=$image['error'];
-       $imagefiletemp=$image['tmp_name'];
-       $filename_separate=explode('.',$imagefilename);
-       print_r($filename_separate);
-       $file_extension=strtolower(end($filename_separate));
-       print_r($file_extension);
-       $extension=array('jpeg','png','jpg','pdf');
-       if(in_array($file_extension,$extension))
-       {
-            $upload_image='uploads/'.$imagefilename;
-            move_uploaded_file($imagefiletemp,$upload_image);
+        $imagefilename = $files['name'][$key];
+        $imagefileerror = $files['error'][$key];
+        $imagefiletemp = $files['tmp_name'][$key];
+        $filename_separate = explode('.', $imagefilename);
+        $file_extension = strtolower(end($filename_separate));
+        $extension = array('jpeg', 'png', 'jpg', 'pdf');
+
+        if (in_array($file_extension, $extension))
+        {
+            $upload_image = 'uploads/' . $username . '/' . $imagefilename;
+
+            if (!file_exists('uploads/' . $username))
+            {
+                mkdir('uploads/' . $username, 0777, true);
+            }
+
+            move_uploaded_file($imagefiletemp, $upload_image);
             $conn = db_connect();
 
-            $sql = "insert into `images` (Username,email,image) values('$username','$email','$upload_image')";
-            $result=mysqli_query($conn,$sql);
-            if($result)
+            $sql = "insert into images (Username, email, image) values('$username', '$email', '$upload_image')";
+            $result = mysqli_query($conn, $sql);
+
+            if ($result)
             {
-                echo '<div class="alert alert-success" role="alert"><strong>success!</strong> Data inserted successfully </div>';
+                $uploaded_images[] = $upload_image;
             }
             else
             {
                 die(mysqli_error($conn));
             }
         }
-
     }
+
+    if (!empty($uploaded_images))
+    {
+        echo '<div class="alert alert-success" role="alert"><strong>success!</strong> Data inserted successfully </div>';
+    }
+}
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        img{
-            width: 100px;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            img{
+                width: 100px;
+            }
 
-    </style>
-</head>
-<body>
-    
-    <h1 class="text-center my-4">User data</h1>
-    <div class="container mt-5 justify-content-center">
+        </style>
+    </head>
+    <body>
+        
         <table class="table table-bordered ">
             <thead class="table-dark">
                 <tr>
@@ -72,29 +80,25 @@
                 <?php
                 $conn = db_connect();
 
-                $sql="Select * from `images`";
-                $result=mysqli_query($conn,$sql);
-                while($row=mysqli_fetch_assoc($result))
+                $sql = "Select * from images where Username = '$username'";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result))
                 {
-                    $id=$row['id'];
-                    $username=$row['Username'];
-                    $email=$row['email'];
-                    $image=$row['image'];
+                    $id = $row['id'];
+                    $username = $row['Username'];
+                    $email = $row['email'];
+                    $image = $row['image'];
                     echo '<tr>
                             <td>'.$id.'</td>
                             <td>'.$username.'</td>
                             <td>'.$email.'</td>
-                            <td><img src='.$image.' /></td>
+                            <td><img src="'.$image.'" alt="Image"></td>
                         </tr>';
                 }
-
-
                 ?>
 
-                <table class="table"></table>
             </tbody>
         </table>
-    </div>
-    
-</body>
+            
+    </body>
 </html>

@@ -120,7 +120,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true)
                 <img src="images/asd.jpg">
                 <h3>get your images</h3>
                 <p>its the best way to collect your pictures to your friends with privacy and security</p>
-                <a href="#" class="btn"> let's start</a>
+                <a href="webcam/get.php" class="btn"> let's start</a>
 
             </div>
 
