@@ -837,6 +837,51 @@ section
     {
         text-align: center;
     }
+}
 
-
+@media (max-width: 365px) 
+    {
+        
+    html 
+    {
+        font-size: 50%; 
+    }
+      
+        
+    .header 
+    {
+      padding: 1rem;
+    }
+      
+      
+    .header .navbar 
+    {
+        /* Adjust position, width, and other properties for smaller screens */
+    }
+      
+       
+    .home, .features, .trusted-by-professionals, .apart, .footer 
+    {
+      padding: 1rem; 
+    }
+      
+       
+    h1, h2, h3, h4, p 
+    {
+        font-size: calc(1rem + 0.5vw); 
+    }
+      
+       
+    img 
+    {
+        max-width: 100%;
+        height: auto;
+    }
+      
+       
+    .btn 
+    {
+        font-size: 1.2rem;
+        padding: 0.8rem 1rem;
+    }
 }
