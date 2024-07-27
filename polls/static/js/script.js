@@ -57,7 +57,7 @@ LOGOUT.addEventListener("click", (event) => {
   fetch("/logout/").then(res => res.text()).then(mes => {
     if (mes === "Logged out") {
       // window.location.reload();
-      location = "https://11c72069-11aa-4511-88e6-088a66c7d3e3-00-23docfarbiphv.sisko.replit.dev/";
+      location = "http://127.0.0.1:8000/auth/";
     }
     
   }).catch(err => console.error(err))
