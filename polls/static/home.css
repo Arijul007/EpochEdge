@@ -164,7 +164,7 @@ section
 }
 .home .content p 
 {
-    color:rgb(17, 13, 13);
+    color:rgb(252, 247, 247);
     font-size: 15px;
     padding: 1rem 0;
     line-height: 1.8rem;
@@ -211,17 +211,19 @@ section
 
 .box
 {
-    color: #fff;
+    color: #100404;
 
 }
 .box h3
 {
-
+    color: #eef3f6;
     font-size: 35px;
 }
 .box p
 {
-    font-size: 20px;
+    padding-top: 2rem;
+    color: #0a0007;
+    font-size: 15px;
 }
 .features .box-container0 img
 {
