@@ -57,7 +57,7 @@ LOGOUT.addEventListener("click", (event) => {
   fetch("/logout/").then(res => res.text()).then(mes => {
     if (mes === "Logged out") {
       // window.location.reload();
-      location = "http://127.0.0.1:8000/auth/";
+      location = "http://127.0.0.1:8000/";
     }
     
   }).catch(err => console.error(err))
