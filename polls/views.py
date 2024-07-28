@@ -18,6 +18,7 @@ from zipfile import ZipFile
 import cv2
 
 
+
 class LogSuccessResponse(HttpResponse):
 
     def close(self):
@@ -46,7 +47,7 @@ def base64_string_to_pillow_image(base64_str):
 
 
 def index(request):
-    print("Hi mom")
+    print("Hi")
     print(os.path.abspath("uploads"))
     return HttpResponse("Hello, world. You're at the polls index.")
 
@@ -214,10 +215,8 @@ def process(request):
 
 
     with open('face_matched_zipped/compressedtextstuff.zip', "rb") as fh:
-        response = LogSuccessResponse(fh.read(),
-                                      content_type="application/zip")
-        response[
-            'Content-Disposition'] = 'inline; filename=compressedtextstuff.zip'
+        response = LogSuccessResponse(fh.read(),content_type="application/zip")
+        response['Content-Disposition'] = 'inline; filename=compressedtextstuff.zip'
         return response
 
 
@@ -234,8 +233,7 @@ def try_login(request):
     if request.method == "POST":
         data = JSONParser().parse(request)
 
-        user = authenticate(username=data["username"],
-                            password=data["password"])
+        user = authenticate(username=data["username"],password=data["password"])
         print(user)
         if user is not None:
             login(request, user)
@@ -262,8 +260,7 @@ def try_sign_up(request):
         data = JSONParser().parse(request)
 
         try:
-            user = models.User.objects.create_user(username=data["username"],
-                                                   password=data["password"])
+            user = models.User.objects.create_user(username=data["username"],password=data["password"])
             user.save()
             return HttpResponse("user created")
         except:
@@ -358,10 +355,9 @@ def download_files(request):
             myzip.write(x.file)
 
     with open('zipped/compressedtextstuff.zip', "rb") as fh:
-        response = LogSuccessResponse(fh.read(),
-                                      content_type="application/zip")
-        response[
-            'Content-Disposition'] = 'inline; filename=compressedtextstuff.zip'
+        response = LogSuccessResponse(fh.read(),content_type="application/zip")
+        response['Content-Disposition'] = 'inline; filename=compressedtextstuff.zip'
+        print("hi")
         return response
 
 
