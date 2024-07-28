@@ -22,7 +22,7 @@ success.addEventListener("click", () => {
   .then( blob => {
          var file = window.URL.createObjectURL(blob);
          window.location.assign(file);
-     location = "http://127.0.0.1:8000/success/";
+         setTimeout(() => location = "http://127.0.0.1:8000/success/", 1000)
        })
   .catch(err => {
     console.error(err);
