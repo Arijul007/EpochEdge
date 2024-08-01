@@ -118,6 +118,7 @@ span
     border-radius: 4rem;
     border: .2rem solid var(--main-color);
     animation:floatImage 4s ease-in-out infinite;
+    margin-top: 2rem;
 }
 
 @keyframes floatImage
