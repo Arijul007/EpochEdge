@@ -19,7 +19,7 @@ urlpatterns = [
          name="does the user exist"),
     path("success/", views.downloaded_page, name="success"),
     path("download-files/", views.download_files, name="download files"),
-    path("home/", views.home, name="Portfolio"),
+    path("home/", views.home, name="index"),
      path("post-review/", views.post_review, name="post review"),
      path("process/", image_api.process_image, name="peocess")
 ]
