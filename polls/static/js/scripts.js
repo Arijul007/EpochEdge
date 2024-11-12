@@ -97,3 +97,6 @@ SEND_BUTTON.addEventListener("click", (e) => {
 
     fetch("/post-review/", { method: "POST", body: JSON.stringify(data) })
 })
+
+
+
